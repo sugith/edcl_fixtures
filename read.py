@@ -11,18 +11,18 @@ soup = BeautifulSoup(text, "html.parser")
 div = soup.find('div', attrs={'class':'entry-content'})
 link = div.a.get('href')
 
-print(link)
+# print(link)
 xls = pd.ExcelFile(link, header=None)
-print(xls.sheet_names)
+# print(xls.sheet_names)
 
 # load the sheet
 schedule = xls.parse('Schedule')
-schedule.columns = ['Date', 'Day', 'Victoria ParkM', 'Victoria ParkE', 'MillwoodsM', 'MillwoodsE', 'StAlbertM', 'StAlbertE', 'CastledownsM', 'CastledownsE', 'Red Deer', 'Out of City Events', '', 'Premier Division', 'T20 Premier Division']
+schedule.columns = ['date', 'day', 'victoria_park_m', 'victoria_park_e', 'millwoods_m', 'millwoods_e', 'st_albert_m', 'st_albert_e', 'castledowns_m', 'castledowns_e', 'red_deer', 'out_of_city_events', '', 'premier_division', 't20_premier_division']
 
 
 for index, row in schedule.iterrows():
-    if str(row["Date"]) != 'NaT':
-        this_date = str(row["Date"])
+    if str(row["date"]) != 'NaT':
+        this_date = str(row["date"])
         date = datetime.strptime(this_date, '%Y-%m-%d %H:%M:%S').date()
         search_for = 'CHA'
         ground = ''
@@ -30,35 +30,35 @@ for index, row in schedule.iterrows():
 
         today = datetime.now().strftime('%Y-%m-%d')
 
-        if str(row['Victoria ParkM']) != 'nan' and str(row['Victoria ParkM']).find(search_for) != -1:
-            ground = 'VP'
-            match = row['Victoria ParkM']
-        elif str(row['Victoria ParkE']) != 'nan' and str(row['Victoria ParkE']).find(search_for) != -1:
-            ground = 'VP'
-            match = row['Victoria ParkE']
-        elif str(row['MillwoodsM']) != 'nan' and str(row['MillwoodsM']).find(search_for) != -1:
+        if str(row['victoria_park_m']) != 'nan' and str(row['victoria_park_m']).find(search_for) != -1:
+            ground = 'Victoria Park'
+            match = row['victoria_park_m']
+        elif str(row['victoria_park_e']) != 'nan' and str(row['victoria_park_e']).find(search_for) != -1:
+            ground = 'Victoria Park'
+            match = row['victoria_park_e']
+        elif str(row['millwoods_m']) != 'nan' and str(row['millwoods_m']).find(search_for) != -1:
             ground = 'Millwoods'
-            match = row['MillwoodsM']
-        elif str(row['MillwoodsE']) != 'nan' and str(row['MillwoodsE']).find(search_for) != -1:
+            match = row['millwoods_m']
+        elif str(row['millwoods_e']) != 'nan' and str(row['millwoods_e']).find(search_for) != -1:
             ground = 'Millwoods'
-            match = row['MillwoodsE']
-        elif str(row['StAlbertM']) != 'nan' and str(row['StAlbertM']).find(search_for) != -1:
-            ground = 'StAlbert'
-            match = row['StAlbertM']
-        elif str(row['StAlbertE']) != 'nan' and str(row['StAlbertE']).find(search_for) != -1:
-            ground = 'StAlbert'
-            match = row['StAlbertE']
-        elif str(row['CastledownsM']) != 'nan' and str(row['CastledownsM']).find(search_for) != -1:
+            match = row['millwoods_e']
+        elif str(row['st_albert_m']) != 'nan' and str(row['st_albert_m']).find(search_for) != -1:
+            ground = 'St.Albert'
+            match = row['st_albert_m']
+        elif str(row['st_albert_e']) != 'nan' and str(row['st_albert_e']).find(search_for) != -1:
+            ground = 'St.Albert'
+            match = row['st_albert_e']
+        elif str(row['castledowns_m']) != 'nan' and str(row['castledowns_m']).find(search_for) != -1:
             ground = 'Castledowns'
-            match = row['CastledownsM']
-        elif str(row['CastledownsE']) != 'nan' and str(row['CastledownsE']).find(search_for) != -1:
+            match = row['castledowns_m']
+        elif str(row['castledowns_e']) != 'nan' and str(row['castledowns_e']).find(search_for) != -1:
             ground = 'Castledowns'
-            match = row['CastledownsE']
-        elif (str(row['Red Deer']) != 'nan' and str(row['Red Deer']) != "") and str(row['Red Deer']).find(search_for) != -1:
+            match = row['castledowns_e']
+        elif (str(row['red_deer']) != 'nan' and str(row['red_deer']) != "") and str(row['red_deer']).find(search_for) != -1:
             ground = 'Red Deer'
-            match = row['Red Deer']
+            match = row['red_deer']
         else:
             ground = ''
             match = ''
 
-        print(str(date)+ ' - ' + str(row['Day']) + ' - ' +ground+' - '+match)
+        print(str(date)+ ' - ' + str(row['day']) + ' - ' +ground+' - '+match)
