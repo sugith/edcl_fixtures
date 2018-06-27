@@ -2,7 +2,7 @@
 Display EDCL cricket match fixtures.
 
 
-Premier Division
+##Premier Division
 CHA - Challengers A
 CHC - Challengers C
 ELA - Elites A
@@ -10,7 +10,7 @@ GMA - Ginny A
 MWA - Millwoods A
 GUJA - Gujarat A
 
-First Division
+##First Division
 RSA - Rising Stars A
 COSA - Cosmos A
 SHKA - Shakti A
@@ -20,7 +20,7 @@ RDR - Red Deer A
 ELCA - Edmonton Loins A
 CHB - Challengers B
 
-Second Division
+##Second Division
 EDA - Edmonton A
 STL - Stallions
 GMC - Ginny C
@@ -31,7 +31,7 @@ MWB - Millwoods B
 GUJB - Gujarat B
 
 
-Third Division
+##Third Division
 KNGB - King XI B
 EGLA - Edmonton Eagles A
 RBL - Royal Bengal
@@ -42,7 +42,7 @@ SHKB - Shakti B
 TIT - Titans
 
 
-Fourth Division
+##Fourth Division
 ELCB - Edmonton Lions B
 COSB - Cosmopolitans B
 WXI - World XI
