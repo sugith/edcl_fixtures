@@ -1,5 +1,6 @@
 # edcl_fixtures
 Display EDCL cricket match fixtures.
+Change the "search_for" value to find your team's schedule.
 
 
 ## Premier Division
